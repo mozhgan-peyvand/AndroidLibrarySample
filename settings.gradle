@@ -31,5 +31,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "AndroidLibrarySample"
 include ':app'
-include ':data'
-include ':ui-user'
+include ':main-library-published'
+include ':dependent-library-one'
+include ':dependent-library-two'
