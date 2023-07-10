@@ -1,4 +1,4 @@
-package com.example.androidlibrarysample.ui.theme
+package com.example.main_library_published.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
