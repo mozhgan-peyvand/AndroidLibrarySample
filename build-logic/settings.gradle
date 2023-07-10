@@ -23,13 +23,14 @@ dependencyResolutionManagement {
                 password = "EL2BB+*wkXEaydY=/2>2Kx-tV4CV-%"
             }
         }
+    }
 
-        versionCatalogs {
-            create("libs") {
-                from(files("../gradle/lib.versions.toml"))
-            }
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
         }
     }
+
 }
 rootProject.name = "build-logic"
 

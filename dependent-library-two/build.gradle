@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -20,12 +22,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildFeatures {
+        compose true
+    }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.4.5'
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 }
 
@@ -39,4 +49,17 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation libs.activityCompose
+    implementation libs.composeCompiler
+    implementation libs.composeFoundation
+    implementation libs.composeMaterial
+    implementation libs.composeRuntime
+    implementation libs.composeUi
+    implementation libs.composeUiGraphics
+    implementation libs.composeUiTooling
+
+    implementation libs.roomRuntime
+    kapt libs.roomCompiler
+    implementation libs.roomKtx
 }
