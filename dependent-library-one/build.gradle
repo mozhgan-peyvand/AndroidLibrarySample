@@ -2,6 +2,8 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'maven-publish'
 }
 
 android {
@@ -42,4 +44,35 @@ dependencies {
     implementation libs.roomRuntime
     kapt libs.roomCompiler
     implementation libs.roomKtx
+}
+
+publishing {
+    repositories {
+        maven {
+            url "$buildDir/repo"
+        }
+    }
+    publications {
+        register("Debug", MavenPublication) {
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode("dependencies")
+
+                configurations.implementation.allDependencies.each { dependency ->
+                    if (dependency.name != "unspecified") {
+                        def dependencyNode = dependenciesNode.appendNode("dependency")
+                        dependencyNode.appendNode("groupId", dependency.group)
+                        dependencyNode.appendNode("artifactId", dependency.name)
+                        dependencyNode.appendNode("version", dependency.version)
+                    }
+                }
+            }
+
+            artifacts {
+                def artifactFile = file("$buildDir/outputs/aar/${project.name}-debug.aar")
+                artifact(artifactFile) {
+                    artifactId = "${project.name}-debug"
+                }
+            }
+        }
+    }
 }

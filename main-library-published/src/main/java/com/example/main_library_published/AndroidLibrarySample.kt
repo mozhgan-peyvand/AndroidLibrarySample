@@ -36,18 +36,10 @@ class AndroidLibrarySample(
 
         fun useAsLibrary(useAsLibrary: Boolean = true) = apply { this.useAsLibrary = useAsLibrary }
 
-
-        fun setAppId(appId: String) = apply { this.appId = appId }
-
-
         fun build() = AndroidLibrarySample(this)
     }
 
     fun start() {
-//        HomeActivity.useAsLibrary = useAsLibrary
-//        HomeActivity.startPage = startPage
-//        HomeActivity.appId = appId
-//        HomeActivity.updateAppUrl = updateAppUrl
         Intent(context, LibraryActivity::class.java).apply {
             (context as Activity).startActivityForResult(this, REQUESTCODE)
         }

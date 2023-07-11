@@ -2,6 +2,8 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
+    id 'kotlin-android'
+    id 'maven-publish'
 
 }
 
@@ -62,4 +64,42 @@ dependencies {
     implementation libs.roomRuntime
     kapt libs.roomCompiler
     implementation libs.roomKtx
+}
+
+publishing {
+    repositories {
+        maven {
+            url "$buildDir/repo"
+        }
+    }
+    publications {
+        register("Debug", MavenPublication) {
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode("dependencies")
+
+                configurations.implementation.allDependencies.each { dependency ->
+                    if (dependency.name != "unspecified") {
+                        def dependencyNode = dependenciesNode.appendNode("dependency")
+                        dependencyNode.appendNode("groupId", dependency.group)
+                        dependencyNode.appendNode("artifactId", dependency.name)
+                        dependencyNode.appendNode("version", dependency.version)
+                    }
+                }
+
+                // Add dependencies on library one and library two
+                def libraryOneDependency = dependenciesNode.appendNode("dependency")
+                libraryOneDependency.appendNode("groupId", "com.example.dependent_library_one") // Customize with the actual group ID of library one
+                libraryOneDependency.appendNode("artifactId", "library-one") // Customize with the actual artifact ID of library one
+                libraryOneDependency.appendNode("version", "1.0.0") // Customize with the actual version of library one
+
+            }
+
+            artifacts {
+                def artifactFile = file("$buildDir/outputs/aar/${project.name}-debug.aar")
+                artifact(artifactFile) {
+                    artifactId = "${project.name}-debug"
+                }
+            }
+        }
+    }
 }
