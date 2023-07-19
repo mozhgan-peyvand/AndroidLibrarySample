@@ -32,6 +32,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AndroidLibrarySample"
+//rootProject.name = "com.example.AndroidLibrarySample"
+
 include ':app'
 include ':main-library-published'
 include ':dependent-library-one'

@@ -14,6 +14,7 @@ android {
 
     defaultConfig {
         minSdk = 24
+        version = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
         vectorDrawables.useSupportLibrary = true
@@ -48,7 +49,7 @@ android {
 }
 
 dependencies {
-    implementation("AndroidLibrarySample:dependent-library-one-debug:unspecified")
+    implementation("AndroidLibrarySample:dependent-library-one-debug:1.0.0")
 //    implementation(project(":dependent-library-one"))
 
     implementation("androidx.core:core-ktx:1.10.1")

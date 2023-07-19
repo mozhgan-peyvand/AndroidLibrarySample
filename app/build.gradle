@@ -48,7 +48,7 @@ android {
 
 dependencies {
 
-    implementation("AndroidLibrarySample:main-library-published-debug:unspecified")
+    implementation("AndroidLibrarySample:main-library-published-debug:1.0.0")
 
 //    implementation(project(":main-library-published"))
 
