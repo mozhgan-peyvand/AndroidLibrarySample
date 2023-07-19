@@ -1,4 +1,3 @@
-import org.gradle.kotlin.dsl.accessors.runtime.addDependencyTo
 
 plugins {
     id("com.android.library")
@@ -49,12 +48,8 @@ android {
 }
 
 dependencies {
-//    addDependency(
-//        listOf(
-//
-//        )
-//    )
-    implementation(project(":dependent-library-one"))
+    implementation("AndroidLibrarySample:dependent-library-one-debug:unspecified")
+//    implementation(project(":dependent-library-one"))
 
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -96,21 +91,6 @@ publishing {
                         dependencyNode.appendNode("version", dependency.version)
                     }
                 }
-
-                // Add dependencies on library one and library two
-                val libraryOneDependency = dependenciesNode.appendNode("dependency")
-                libraryOneDependency.appendNode(
-                    "groupId",
-                    "com.example.dependent_library_one"
-                ) // Customize with the actual group ID of library one
-                libraryOneDependency.appendNode(
-                    "artifactId",
-                    "library-one"
-                ) // Customize with the actual artifact ID of library one
-                libraryOneDependency.appendNode(
-                    "version",
-                    "1.0.0"
-                ) // Customize with the actual version of library one
             }
 
             artifacts {

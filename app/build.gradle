@@ -48,7 +48,9 @@ android {
 
 dependencies {
 
-    implementation(project(":main-library-published"))
+    implementation("AndroidLibrarySample:main-library-published-debug:unspecified")
+
+//    implementation(project(":main-library-published"))
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'

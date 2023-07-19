@@ -3,6 +3,7 @@ pluginManagement {
     repositories {
 //        google()
 //        mavenCentral()
+        mavenLocal()
         maven {
             url = uri("https://nexus.partdp.ir/repository/part-android/")
             artifactUrls("https://nexus.partdp.ir/repository/part-android/")
@@ -17,6 +18,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        mavenLocal()
         maven {
             url = uri("https://nexus.partdp.ir/repository/part-android/")
             artifactUrls("https://nexus.partdp.ir/repository/part-android/")
