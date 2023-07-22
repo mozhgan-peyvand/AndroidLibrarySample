@@ -227,4 +227,26 @@ for publishing .aar we use of this code:
             }
 ```
 
+the `artifacts` block is used to specify the AAR file that will be published to the local Maven repository.
+
+1. **val artifactFile = file("$buildDir/outputs/aar/${project.name}-debug.aar")**: This line creates a variable artifactFile that represents the location of the AAR file that will be published. The file is located in the build directory of the module, inside the outputs/aar folder. The AAR file is named based on the project's name with the -debug.aar extension.
+
+2. **artifact(artifactFile)**: This line specifies the AAR file that should be published. The artifact() function takes the artifactFile as an argument, indicating that this file should be included as part of the publication.
+
+3. **artifactId = "${project.name}-debug"**: This line sets the artifactId property of the publication. The artifactId is a unique identifier for the artifact being published. In this case, it uses the project's name with the -debug suffix.
+
+finally for useing enternal library in other library we should use like that in gradle of other library:
+```groovy
+implementation("AndroidLibrarySample:dependent-library-one-debug:1.0.0")
+```
+and if you search in your computer this library publish in this address:
+`C:\Users\mozhgan.peivandian\.m2\repository\AndroidLibrarySample\dependent-library-one-debug\1.0.0`
+in that path we can see this dependnecy:
+`AndroidLibrarySample\dependent-library-one-debug\1.0.0`
+in this address we have .aar and .pom files.
+
+instead of that: 
+```groovy
+implementation(project(":dependent-library-one"))
+```
 This README.md file provides instructions on how to use and publish the AndroidLibrarySample project with Maven locally. Follow the steps to create reusable libraries and utilize them in other projects. The project also demonstrates API data fetching using Retrofit and displaying it with Jetpack Compose. Happy coding!
