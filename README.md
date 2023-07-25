@@ -249,4 +249,11 @@ instead of that:
 ```groovy
 implementation(project(":dependent-library-one"))
 ```
+Now, you have two options for using this library:
+
+1. **Remote Repository (Recommended for sharing with others):** You can upload the published library to a remote repository, like a Git repository hosted on platforms like GitHub or a private artifact repository. By doing so, other developers or projects can easily include this library in their own projects by adding the appropriate dependency configuration to their build files.
+dont forget for using this main-library-published in Remote Repository you also should add all of dependent libraries in Repository.
+
+3. **Internal Library (For your own projects):** Alternatively, if you have multiple projects and want to reuse this library across them, you can keep the published library as a local dependency and use it internally within your projects. To do this, you can modify your project's build configuration to reference the local `.aar` file. For example, you can use `implementation files("path/to/main-library-published-debug.aar")` in your project's `build.gradle` file to include the library.
+
 This README.md file provides instructions on how to use and publish the AndroidLibrarySample project with Maven locally. Follow the steps to create reusable libraries and utilize them in other projects. The project also demonstrates API data fetching using Retrofit and displaying it with Jetpack Compose. Happy coding!
