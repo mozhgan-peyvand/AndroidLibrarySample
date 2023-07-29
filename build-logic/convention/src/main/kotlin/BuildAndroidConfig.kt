@@ -1,5 +1,3 @@
-package com.example.convention
-
 import java.text.SimpleDateFormat
 import java.util.*
 
