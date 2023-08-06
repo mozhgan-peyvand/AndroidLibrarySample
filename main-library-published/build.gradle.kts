@@ -45,10 +45,10 @@ android {
 }
 
 dependencies {
-//    implementation(project(":dependent-library-two"))
-//    implementation(project(":dependent-library-one"))
-    implementation("AndroidLibrarySample:dependent-library-one-debug:unspecified")
-    implementation("AndroidLibrarySample:dependent-library-two-debug:unspecified")
+    implementation(project(":dependent-library-two"))
+    implementation(project(":dependent-library-one"))
+//    implementation("AndroidLibrarySample:dependent-library-one-debug:unspecified")
+//    implementation("AndroidLibrarySample:dependent-library-two-debug:unspecified")
 
     implementation(libs.androidCore)
     implementation(libs.appCompat)
