@@ -48,8 +48,8 @@ android {
 }
 
 dependencies {
-    implementation("AndroidLibrarySample:dependent-library-one-debug:unspecified")
-//    implementation(project(":dependent-library-one"))
+//    implementation("AndroidLibrarySample:dependent-library-one-debug:unspecified")
+    implementation(project(":dependent-library-one"))
 
     implementation(libs.androidCore)
     implementation(libs.appCompat)

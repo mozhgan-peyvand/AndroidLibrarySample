@@ -48,9 +48,9 @@ android {
 
 dependencies {
 
-    implementation("AndroidLibrarySample:main-library-published-debug:unspecified")
+//    implementation("AndroidLibrarySample:main-library-published-debug:unspecified")
 
-//    implementation(project(":main-library-published"))
+    implementation(project(":main-library-published"))
 
 
     implementation(libs.activityCompose)

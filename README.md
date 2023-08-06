@@ -212,7 +212,7 @@ for internal dependency like androidx-appcompat:
    2. **artifactId** : appcompat
    3. **version** : 1.6.1
       
-## AAR(Android Archive)
+## AAR(Android ARchive)
 An AAR (Android Archive) is a binary distribution format used by Android projects to package and distribute reusable Android libraries. It contains compiled code (JAR files), resources, and metadata required to use the library in an Android application.
 After building the library module, Gradle will generate the AAR file in the `build/outputs/aar` directory of your library module
 The `build` task  is responsible for building your Android application, including generating the AAR files for library modules, but it does not automatically publish them to a repository.
