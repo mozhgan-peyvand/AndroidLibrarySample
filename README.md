@@ -14,6 +14,9 @@ The project consists of four modules:
 
 4. **app**: This is the sample app module that demonstrates how to use the `main-library-published` in an Android application.
 
+    ![module Diagram](img/dependency-graph/project.dot.png)
+
+
 ## Getting Started
 
 To get started with this project, follow these steps:
